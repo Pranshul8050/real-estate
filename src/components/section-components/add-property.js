@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import TagsInput from 'react-tagsinput';
+import 'react-tagsinput/react-tagsinput.css';
 // import '../style.css';
-import { WithContext as ReactTags } from "react-tag-input";
 
 export default function SubmitPropertyRequest(props) {
   let navigate = useNavigate();
@@ -36,8 +37,6 @@ export default function SubmitPropertyRequest(props) {
   let [Places, setPlaces] = useState([]);
   let [PopularTags, setPopularTags] = useState([]);
 
-  const delimiters = [13, 188];
-
   function submit(event) {
     event.preventDefault();
 
@@ -66,9 +65,9 @@ export default function SubmitPropertyRequest(props) {
       Owner: Owner,
       PropertyCategory: PropertyCategory,
 
-      Amenities: Amenities.map((a) => a.text),
-      Places: Places.map((a) => a.text),
-      PopularTags: PopularTags.map((a) => a.text),
+      Amenities: Amenities,
+      Places: Places,
+      PopularTags: PopularTags,
     };
 
     console.log(property);
@@ -83,56 +82,7 @@ export default function SubmitPropertyRequest(props) {
       .catch((res) => alert("An unexpected Error occured: " + res.data));
   }
 
-  const handleDeleteTags = (i) => {
-    setPopularTags(PopularTags.filter((tag, index) => index !== i));
-  };
 
-  const handleDeleteAmenities = (i) => {
-    setAmenities(Amenities.filter((amenity, index) => index !== i));
-  };
-
-  const handleDeletePlaces = (i) => {
-    setPlaces(Places.filter((place, index) => index !== i));
-  };
-
-  const handleAdditionTags = (tag) => {
-    setPopularTags([...PopularTags, tag]);
-  };
-
-  const handleAdditionAmenities = (amenity) => {
-    setAmenities([...Amenities, amenity]);
-  };
-
-  const handleAdditionPlaces = (place) => {
-    setPlaces([...Places, place]);
-  };
-
-  const handleDragTags = (tag, currPos, newPos) => {
-    const newTags = PopularTags.slice();
-
-    newTags.splice(currPos, 1);
-    newTags.splice(newPos, 0, tag);
-
-    setPopularTags(newTags);
-  };
-
-  const handleDragAmenities = (tag, currPos, newPos) => {
-    const newTags = Amenities.slice();
-
-    newTags.splice(currPos, 1);
-    newTags.splice(newPos, 0, tag);
-
-    setAmenities(newTags);
-  };
-
-  const handleDragPlaces = (tag, currPos, newPos) => {
-    const newTags = Places.slice();
-
-    newTags.splice(currPos, 1);
-    newTags.splice(newPos, 0, tag);
-
-    setPlaces(newTags);
-  };
 
   return (
     <div className=" ps-5 pt-5 pb-5 me-5 mb-5 bg-white rounded">
@@ -387,15 +337,10 @@ export default function SubmitPropertyRequest(props) {
             <strong>Amenities:</strong>
           </Form.Label>
           <Col sm={6}>
-            <ReactTags
-              tags={Amenities}
-              delimiters={delimiters}
-              handleDelete={handleDeleteAmenities}
-              handleAddition={handleAdditionAmenities}
-              handleDrag={handleDragAmenities}
-              inputFieldPosition="top"
-              editable={true}
-              placeholder="Press enter to add new amenity"
+            <TagsInput
+              value={Amenities}
+              onChange={setAmenities}
+              inputProps={{ placeholder: "Press enter to add new amenity" }}
             />
           </Col>
         </Form.Group>
@@ -405,15 +350,10 @@ export default function SubmitPropertyRequest(props) {
             <strong>Places:</strong>
           </Form.Label>
           <Col sm={6}>
-            <ReactTags
-              tags={Places}
-              delimiters={delimiters}
-              handleDelete={handleDeletePlaces}
-              handleAddition={handleAdditionPlaces}
-              handleDrag={handleDragPlaces}
-              inputFieldPosition="top"
-              editable={true}
-              placeholder="Press enter to add new place"
+            <TagsInput
+              value={Places}
+              onChange={setPlaces}
+              inputProps={{ placeholder: "Press enter to add new place" }}
             />
           </Col>
         </Form.Group>
@@ -423,14 +363,10 @@ export default function SubmitPropertyRequest(props) {
             <strong>Relevant Tags:</strong>
           </Form.Label>
           <Col sm={6}>
-            <ReactTags
-              tags={PopularTags}
-              delimiters={delimiters}
-              handleDelete={handleDeleteTags}
-              handleAddition={handleAdditionTags}
-              handleDrag={handleDragTags}
-              inputFieldPosition="top"
-              editable={true}
+            <TagsInput
+              value={PopularTags}
+              onChange={setPopularTags}
+              inputProps={{ placeholder: "Press enter to add new tag" }}
             />
           </Col>
         </Form.Group>

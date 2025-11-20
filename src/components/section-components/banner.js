@@ -28,10 +28,13 @@ class Banner extends Component {
                     <div className="col-md-3">
                       <div className="single-select-inner">
                         <select defaultValue={0}>
-                          <option value={0}>Loctaion</option>
-                          <option value={1}>Lahore</option>
-                          <option value={2}>Islamabad</option>
-                          <option value={3}>Multan</option>
+                          <option value={0}>Location</option>
+                          <option value={1}>Mumbai</option>
+                          <option value={2}>Bangalore</option>
+                          <option value={3}>Delhi</option>
+                          <option value={4}>Pune</option>
+                          <option value={5}>Hyderabad</option>
+                          <option value={6}>Chennai</option>
                         </select>
                       </div>
                     </div>

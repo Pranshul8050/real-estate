@@ -178,16 +178,19 @@ const PropertyDetailsRent = () => {
                 <h5 className="widget-title">Places</h5>
                 <ul>
                   <li>
-                    Lahore <span>26</span>
+                    Mumbai <span>32</span>
                   </li>
                   <li>
-                    Islamabad <span>20</span>
+                    Bangalore <span>28</span>
                   </li>
                   <li>
-                    Multan <span>21</span>
+                    Delhi <span>35</span>
                   </li>
                   <li>
-                    Karachi <span>31</span>
+                    Pune <span>24</span>
+                  </li>
+                  <li>
+                    Hyderabad <span>26</span>
                   </li>
                 </ul>
               </div>
