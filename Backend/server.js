@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const moongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 require("dotenv").config();
 
@@ -10,9 +10,12 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Set strictQuery to false to prepare for Mongoose 7
+mongoose.set('strictQuery', false);
+
 const DB_uri = process.env.ATLAS_URI;
-moongoose.connect(DB_uri);
-const connection = moongoose.connection;
+mongoose.connect(DB_uri);
+const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("Mongo DB connection established sucessfully");
 });
