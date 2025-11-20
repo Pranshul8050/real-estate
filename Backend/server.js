@@ -31,6 +31,25 @@ const RentPropertyDetailRouter = require("./routes/RentPropertyDetail");
 const SalePropertyDetailRouter = require("./routes/SalePropertyDetail");
 const SubmittedPropertyRequestsRouter = require("./routes/SubmittedPropertyRequests");
 
+// Root route for health check
+app.get("/", (req, res) => {
+  res.json({ 
+    message: "Real Estate Backend API is running!", 
+    status: "success",
+    endpoints: {
+      admin: "/Admin",
+      contact: "/ContactUs",
+      about: "/AboutUs",
+      team: "/Team",
+      gallery: "/Gallery",
+      video: "/Video",
+      maps: "/Maps",
+      rentProperties: "/RentPropertyDetail",
+      saleProperties: "/SalePropertyDetail",
+      propertyRequests: "/SubmittedPropertyRequests"
+    }
+  });
+});
 
 app.use("/Admin", AdminRouter);
 app.use("/ContactUs", ContactUsRouter);
