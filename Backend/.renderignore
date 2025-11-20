@@ -1,0 +1,11 @@
+# Ignore frontend files during backend deployment
+src/
+public/
+node_modules/
+package.json
+package-lock.json
+.git/
+.gitignore
+README.md
+SECURITY.md
+CUSTOMIZATION_SUMMARY.md
