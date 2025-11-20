@@ -13,7 +13,7 @@ class Team extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/Team/")
+      .get("https://real-estate-1-juwk.onrender.com/Team/")
       .then((response) => {
         if (response.data) {
           this.setState({

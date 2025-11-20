@@ -15,7 +15,7 @@ class TestimonialV3 extends Component {
     $(".footer-area.style-two").removeClass("mg-top-100");
 
     axios
-      .get("http://localhost:5000/AboutUs/")
+      .get("https://real-estate-1-juwk.onrender.com/AboutUs/")
       .then((response) => {
         if (response.data) {
           this.setState({

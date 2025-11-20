@@ -16,7 +16,7 @@ class ContactForm extends Component {
     $(".footer-area.style-two").removeClass("mg-top-100");
 
     axios
-      .get("http://localhost:5000/ContactUs/")
+      .get("https://real-estate-1-juwk.onrender.com/ContactUs/")
       .then((response) => {
         if (response.data) {
           this.setState({

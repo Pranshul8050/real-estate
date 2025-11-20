@@ -11,7 +11,7 @@ class PropertyGridForSale extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:5000/SalePropertyDetail/")
+      .get("https://real-estate-1-juwk.onrender.com/SalePropertyDetail/")
       .then((response) => {
         if (response.data) {
           this.setState({

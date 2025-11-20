@@ -16,7 +16,7 @@ const PropertyDetailsRent = () => {
   const getProperty = async () =>
     await axios
       .get(
-        "http://localhost:5000/RentPropertyDetail/property-details-rent/" +
+        "https://real-estate-1-juwk.onrender.com/RentPropertyDetail/property-details-rent/" +
           data,
         {}
       )

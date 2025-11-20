@@ -13,7 +13,7 @@ class Gallery extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/Gallery/")
+      .get("https://real-estate-1-juwk.onrender.com/Gallery/")
       .then((response) => {
         if (response.data) {
           this.setState({
